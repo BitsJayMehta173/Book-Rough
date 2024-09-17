@@ -1,10 +1,7 @@
-# Getting Started with Create React App
 
-This project was made for writing and creating rough beside just like we used to have in math class while in school life
 
-## Available Scripts
+# This project was made for writing and creating rough beside just like we used to have in math class while in school life
 
-In the project directory, you can run:
 
 ### `npm start`
 
