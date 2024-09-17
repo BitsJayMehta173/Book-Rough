@@ -1,38 +1,102 @@
 .App {
   text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar .nav-links {
+  display: flex;
+  gap: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar .nav-links button {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.navbar .nav-links button:hover {
+  text-decoration: underline;
+}
+
+.text-area {
+  width: 100%;
+  height: calc(100vh - 60px); /* Adjust to account for the navbar height */
+  padding: 20px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  resize: none;
+  margin-top: 60px; /* Add margin-top to move it below the navbar */
+}
+
+.canvas-button-container {
+  position: fixed;
+  top: 60px; /* Adjust to start below the navbar */
+  right: 0;
+  height: calc(100vh - 60px); /* Adjust to account for the navbar height */
+  width: 700px; /* Adjust to include canvas and buttons */
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+  background-color: white; /* Optional background color */
+}
+
+.canvas-button-container.hidden {
+  transform: translateX(700px); /* Hide by moving off-screen */
+}
+
+.canvas {
+  border: 1px solid black;
+  margin-right: 20px; /* Space for buttons */
+}
+
+.buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.toggle-button {
+  position: fixed;
+  right: 20px; /* Position the button on the right */
+  top: 70px; /* Adjust top margin as needed */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2; /* Ensure the button is above other content */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.undo-button,
+.clear-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+  display: none; /* Hidden by default */
+}
+
+.undo-button.visible,
+.clear-button.visible {
+  display: block; /* Show when canvas is visible */
 }
