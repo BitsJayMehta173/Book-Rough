@@ -148,7 +148,7 @@ const Canvas = ({ undo, clear, onBlackPixelCountUpdate }) => {
     <canvas
       ref={canvasRef}
       width={600}
-      height={400}
+      height={1000}
       onMouseDown={startDrawing}
       onMouseMove={draw}
       onMouseUp={stopDrawing}
@@ -161,8 +161,7 @@ const Canvas = ({ undo, clear, onBlackPixelCountUpdate }) => {
 const Navbar = () => (
   <div className="navbar">
     <div className="nav-links">
-      <button>Home</button>
-      <button>File</button>
+      <button>BOOK-ROUGH</button>
     </div>
   </div>
 );
@@ -174,7 +173,19 @@ const App = () => {
   const [clear, setClear] = useState(false);
   const [blackPixelCount, setBlackPixelCount] = useState(0);
 
+  useEffect(() => {
+    const savedText = localStorage.getItem("textareaValue");
+    if (savedText) {
+      setText(savedText);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("textareaValue", text);
+  }, [text]);
+
   const handleTextChange = (e) => {
+    console.log(e.target.value)
     setText(e.target.value);
   };
 
@@ -184,18 +195,17 @@ const App = () => {
 
   const handleUndo = () => {
     setUndo(true);
-    setTimeout(() => setUndo(false), 100); // Briefly trigger the undo action
+    setTimeout(() => setUndo(false), 100);
   };
 
   const handleClear = () => {
     setClear(true);
-    setTimeout(() => setClear(false), 100); // Briefly trigger the clear action
+    setTimeout(() => setClear(false), 100);
   };
 
   const handleBlackPixelCountUpdate = (count) => {
     setBlackPixelCount(count);
   };
-
   return (
     <div className="App">
       <Navbar />

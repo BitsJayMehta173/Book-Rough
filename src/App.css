@@ -36,6 +36,13 @@
 
 .navbar .nav-links button:hover {
   text-decoration: underline;
+  
+}
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-area {
@@ -68,7 +75,8 @@
 
 .canvas {
   border: 1px solid black;
-  margin-right: 20px; /* Space for buttons */
+  /* margin-right: 20px; Space for buttons */
+  margin-left: 100px;
 }
 
 .buttons {
@@ -90,10 +98,14 @@
 .undo-button,
 .clear-button {
   padding: 10px 20px;
+  
   font-size: 16px;
   cursor: pointer;
-  margin: 10px;
+  margin: 10px; 
+  /* margin-left: 25px; */
   display: none; /* Hidden by default */
+  position: relative;
+  left: 80px;
 }
 
 .undo-button.visible,
