@@ -148,7 +148,7 @@ const Canvas = ({ undo, clear, onBlackPixelCountUpdate }) => {
     <canvas
       ref={canvasRef}
       width={600}
-      height={400}
+      height={1000}
       onMouseDown={startDrawing}
       onMouseMove={draw}
       onMouseUp={stopDrawing}
